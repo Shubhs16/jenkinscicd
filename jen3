@@ -14,9 +14,9 @@ pipeline {
         }
         stage('deploy') {
             steps {
-                sh 'docker stop ditiss123'
-                sh 'docker rm ditiss123'
-                sh 'docker run --name ditiss123 -p 9300:80 -d ditiss23:v1'
+                sh 'docker stop ditiss23'
+                sh 'docker rm ditiss23'
+                sh 'docker run --name ditiss23 -p 9300:80 -d ditiss23:v1'
             }
         }
     }
