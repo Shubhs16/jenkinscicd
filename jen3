@@ -3,7 +3,7 @@ pipeline {
     stages {
         stage('fetch') {
             steps {
-                git branch: 'main', url: 'https://github.com/Col-Swapnil/jenkins-demo.git'
+                git branch: 'main', url: 'https://github.com/Shubhs16/jenkinscicd.git'
             }
         }
         stage('build new') {
