@@ -1,0 +1,29 @@
+pipeline{
+        agent any
+        stages{
+            stage('stage1'){
+                steps{
+                    echo "HELLO THIS IS MY FIRTS PIPELINE"
+                    echo "STAGE1 - GIT HUB DOWNLOAD DEVELOPER CODE"
+                    git branch: 'main', credentialsId: 'ad542d54-4045-4f7f-9c5b-caa8003e5dc1', url: 'https://github.com/roblesleandro/ditiss'        
+                    sh '''cd /proj/ditiss
+                    git pull https://github.com/roblesleandro/ditiss'''
+                }
+            }
+            stage('stage2'){
+                steps{
+                    echo "STAGE2 - DOCKER STOP"
+                    sh '''docker stop ditiss1'''
+                }   
+            }
+            stage('stage3'){
+                steps{
+                    echo "STAGE3 - DOCKER BUILD AND INCLUDE THIS CODE (INDEX.HTML) IN DOCKER"
+                    sh '''cd /proj/ditiss
+                    docker build -t ditiss-img:v1 .
+                    docker run --rm --name ditiss1 -p 8600:80 -d ditiss-img:v1'''
+                }   
+            }
+        }
+    
+}
