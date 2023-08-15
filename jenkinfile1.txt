@@ -5,9 +5,9 @@ pipeline{
                 steps{
                     echo "HELLO THIS IS MY FIRTS PIPELINE"
                     echo "STAGE1 - GIT HUB DOWNLOAD DEVELOPER CODE"
-                    git branch: 'main', credentialsId: 'ad542d54-4045-4f7f-9c5b-caa8003e5dc1', url: 'https://github.com/roblesleandro/ditiss'        
+                    git branch: 'main', url: 'https://github.com/Shubhs16/jenkinscicd.git'        
                     sh '''cd /proj/ditiss
-                    git pull https://github.com/roblesleandro/ditiss'''
+                    git pull https://github.com/Shubhs16/jenkinscicd.git'''
                 }
             }
             stage('stage2'){
